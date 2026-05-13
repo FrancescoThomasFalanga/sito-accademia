@@ -135,27 +135,6 @@ h2 {
   letter-spacing: 3px;
 }
 
-/* ===== CARDS METAL ===== */
-
-.cards {
-  display: flex;
-  gap: 20px;
-}
-
-.card {
-  flex: 1;
-  height: 200px;
-  transition: 0.4s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-.gold { border: 1px solid gold; }
-.copper { border: 1px solid #b87333; }
-.silver { border: 1px solid silver; }
-
 
 /* ===== LOGO ===== */
 
@@ -305,19 +284,10 @@ h2 {
         padding: 100px 25px;
     }
 
-    .cards {
-        flex-direction: column;
-        height: 200px;
+    header {
+      height: 75px;
+      padding: 0 22px;
     }
-
-   .card {
-        height: 200px;
-    }
-
-      header {
-    height: 75px;
-    padding: 0 22px;
-  }
 
   .logo {
     font-size: 15px;
