@@ -33,3 +33,41 @@ navLinks.forEach(link => {
     navMenu.classList.remove("active");
   });
 });
+
+const newsletterForm = document.getElementById("newsletter-form");
+const newsletterMessage = document.getElementById("newsletter-message");
+
+if (newsletterForm) {
+  newsletterForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const email = document.getElementById("newsletter-email").value.trim();
+
+    newsletterMessage.textContent = "Invio in corso...";
+    newsletterMessage.className = "newsletter-message";
+
+    try {
+      const response = await fetch("/.netlify/functions/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        newsletterMessage.textContent = "Iscrizione completata. Controlla la tua email.";
+        newsletterMessage.classList.add("success");
+        newsletterForm.reset();
+      } else {
+        newsletterMessage.textContent = data.message || "Errore durante l'iscrizione.";
+        newsletterMessage.classList.add("error");
+      }
+    } catch (error) {
+      newsletterMessage.textContent = "Errore di connessione al server.";
+      newsletterMessage.classList.add("error");
+    }
+  });
+}
