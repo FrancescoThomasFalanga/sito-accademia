@@ -42,7 +42,7 @@ body {
 /* ===== LUCE METALLICA DINAMICA ===== */
 
 .hero h1 {
-  font-size: 80px;
+  font-size: 140px;
   line-height: 1.1;
   background: linear-gradient(
     120deg,
@@ -369,7 +369,7 @@ h2 {
     }
 
     .hero h1 {
-        font-size: 36px;
+        font-size: 80px;
     }
 
     .section {
